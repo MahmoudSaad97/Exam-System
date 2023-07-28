@@ -1,0 +1,34 @@
+<div class="login-container main">
+  <div class="form-container p-4">
+    <form [formGroup]="loginform" class="p-3 w-100">
+      <fieldset>
+        <legend class="text-center fs-2">Login</legend>
+        <div class="my-3 py-1">
+          <label for="userName" class="form-input py-2 my-1">User Name</label>
+          <div class="input-group">
+            <i class="bi bi-person input-group-text fs-4"></i>
+            <input type="text" name="userName" class="form-control p-3 fs-6 " placeholder="Enter Your UserName" formControlName="userName"
+              required>
+          </div>
+          <ng-container *ngIf="getuserName.touched" class="p-2">
+            <p class="text-danger form-text fs-5 p-2" *ngIf="getuserName.hasError('required')">Your UserName Is required</p>
+          </ng-container>
+        </div>
+        <div class="my-3 py-1">
+          <label for="pasword" class="form-input py-2 my-1">Password</label>
+          <div class="input-group ">
+            <i class="bi bi-key input-group-text fs-4"></i>
+            <input [type]="type" name="pasword" class="form-control fs-6 p-3" placeholder="Enter Your Password"
+              formControlName="password"
+              required>
+              <i class="bi {{icon}} input-group-text" (click)="showPassword()"></i>
+          </div>
+          <ng-container *ngIf="getPassword.touched">
+            <p class="text-danger form-text fs-5 p-2" *ngIf="getPassword.hasError('required')"> Please Enter Your Password</p>
+          </ng-container>
+        </div>
+        <button class="btn btn-outline-success my-3 py-2  w-100" type="submit" (click)="checkAuthentication()">Login</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

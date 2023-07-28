@@ -1,0 +1,113 @@
+<div class="container main">
+  <div *ngIf="loading" class="loader"></div>
+  <div class="form-container"  *ngIf="!loading">
+    <div class="info text-center">
+      <h3>New Student Enrollment</h3>
+      <p>M.Saad Exams</p>
+      <div class="logo text-center">
+        <img src="assets/images/1.png" alt="Logo">
+      </div>
+<hr class="w-100"/>
+    </div>
+    <form [formGroup]="userform" class="p-3 w-100" (submit)="formsubmit($event)">
+        <div class="mb-2">
+          <label for="fname" class="form-input">First Name</label>
+          <div class="input-group">
+            <i class="bi bi-person input-group-text"></i>
+            <input type="text" name="fname" class="form-control"
+            placeholder="Enter Your First Name" 
+            formControlName="fname"
+            [ngClass]="{'is-invalid': getfname.invalid && getfname.touched, 'is-valid': getfname.valid}"
+            required>
+          </div>
+          <ng-container *ngIf="getfname.touched">
+            <p class="text-danger form-text fs-6" *ngIf="getfname.hasError('required')">Your First Name Is required</p>
+            <p class="text-danger form-text fs-6" *ngIf="getfname.hasError('pattern')">Invalid Name</p>
+          </ng-container>
+        </div>
+        <div class="mb-2">
+          <label for="lname" class="form-input">Last Name</label>
+          <div class="input-group">
+            <i class="bi bi-person input-group-text"></i>
+            <input type="text" name="lname" class="form-control" 
+            placeholder="Enter Your Last Name"
+            formControlName="lname"
+            [ngClass]="{'is-invalid': getlname.invalid && getlname.touched, 'is-valid': getlname.valid}"
+            required>
+          </div>
+            <ng-container *ngIf="getlname.touched">
+              <p class="text-danger form-text fs-6" *ngIf="getlname.hasError('required')">Your Last Name Is required</p>
+              <p class="text-danger form-text fs-6" *ngIf="getlname.hasError('pattern')">invalid Name</p>
+            </ng-container>
+        </div>
+        <div class="mb-2">
+          <label for="userName" class="form-input">User Name</label>
+          <div class="input-group">
+            <i class="bi bi-person input-group-text"></i>
+            <input type="text" name="userName" class="form-control" 
+            placeholder="Enter Your UserName"
+            formControlName="userName"
+            [ngClass]="{'is-invalid': getuserName.invalid && getuserName.touched, 'is-valid': getuserName.valid}"
+            required>
+          </div>
+            <ng-container *ngIf="getuserName.touched">
+              <p class="text-danger form-text fs-6" *ngIf="getuserName.hasError('required')">Your UserName Is required</p>
+              <p class="text-danger form-text fs-6" *ngIf="getuserName.hasError('minlength')">UserName Must be 6 or More Character</p>
+              <p class="text-danger form-text fs-6" *ngIf="getuserName.getError('propertyExists')">This UserName Already Exist</p>
+            </ng-container>
+        </div>
+        <div class="mb-2">
+          <label for="email" class="form-input">Email</label>
+          <div class="input-group">
+            <i class="bi bi-envelope-at input-group-text"></i>
+            <input type="email" name="email" class="form-control" 
+            placeholder="Enter Your Email"
+            formControlName="email" 
+            [ngClass]="{'is-invalid': getEmail.invalid && getEmail.touched, 'is-valid': getEmail.valid}"
+            required>
+          </div>
+            <ng-container *ngIf="getEmail.touched">
+              <p class="text-danger form-text fs-6" *ngIf="getEmail.hasError('required')">Your Email Is required</p>
+              <p class="text-danger form-text fs-6" *ngIf="getEmail.hasError('email')">Invalid Email</p>
+              <p class="text-danger form-text fs-6" *ngIf="getEmail.getError('propertyExists')">This Email Already Exist</p>
+            </ng-container>
+        </div>
+        <div class="mb-2">
+          <label for="pasword" class="form-input">Password</label>
+          <div class="input-group">
+            <i class="bi bi-key input-group-text"></i>
+            <input [type]="type" name="pasword" class="form-control" 
+            placeholder="Enter Your Password" 
+            formControlName="password"
+            [ngClass]="{'is-invalid': getPassword.invalid && getPassword.touched, 'is-valid': getPassword.valid}"
+            equired>
+            <i class="bi {{icon}} input-group-text" (click)="showPassword()"></i>
+          </div>
+            <ng-container *ngIf="getPassword.touched">
+              <p class="text-danger form-text fs-6" *ngIf="getPassword.hasError('required')"> Please Enter Your Password</p>
+              <p class="text-danger form-text fs-6" *ngIf="getPassword.hasError('pattern')">Password Must Contain At Least 1 Capital letter,Symbol And Number</p>
+            </ng-container>
+        </div>
+        <div class="mb-2">
+          <label for="Confirmpassword" class="form-input">Confirm Password</label>
+          <div class="input-group">
+            <i class="bi bi-key input-group-text"></i>
+            <input [type]="type" name="Confirmpassword" class="form-control" 
+            placeholder="Enter Your Password" 
+            formControlName="Confirmpassword"
+            [ngClass]="{'is-invalid': (userform.errors?.passwordMatch ||getConfirmpassword.invalid) && getConfirmpassword.touched, 'is-valid': !userform.errors?.passwordMatch && getConfirmpassword.touched &&getConfirmpassword.valid}"
+            equired>
+            <i class="bi {{icon}} input-group-text" (click)="showPassword()"></i>
+          </div>
+            <ng-container *ngIf="getConfirmpassword.touched">
+              <p class="text-danger form-text fs-6" *ngIf="getConfirmpassword.hasError('required')"> Please Enter Your password again</p>
+              <div *ngIf="userform.errors?.passwordMatch"><p class="text-danger form-text fs-6">Passwords do not match.</p></div>
+            </ng-container>
+        </div>
+        <button class="btn btn-outline-success py-2 px-5 my-4" type="submit" [disabled]="userform.status === 'INVALID'? true : null">Register</button>
+        <button class="btn btn-outline-danger ms-3 px-5 py-2" type="reset" (click)="confirmCancel($event)">Reset</button>
+    </form>
+    <hr class="w-100"/>
+    <p> You Already Have An Account <a class="text-primary text-decoration-none ms-2" [routerLink]="['/login']">Login</a></p>
+  </div>
+</div>

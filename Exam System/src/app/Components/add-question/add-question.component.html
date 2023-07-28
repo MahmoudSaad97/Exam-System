@@ -1,0 +1,80 @@
+<div class="container main">
+  <div *ngIf="loading" class="loader"></div>
+<div class="w-100">
+  <form [formGroup]="questionform" *ngIf="!loading">
+    <div class="my-3">
+      <label class="form-label fs-5 fw-bold">Adding Question To </label>
+      <input type="text" [value]="exam.examName +' Exam'" disabled class="form-control p-3 fs-5">
+    </div>
+    <div class="my-3">
+      <label for="fname" class="form-label">Question</label>
+      <div class="input-group">
+        <i class="bi bi-patch-question input-group-text fs-4 p-2"></i>
+        <input type="text" name="fname" class="form-control p-3 fs-5" 
+        placeholder="Enter The Question" 
+        formControlName="question"
+          [ngClass]="{'is-invalid': getQuestion.invalid && getQuestion.touched, 'is-valid': getQuestion.valid}" required>
+      </div>
+      <ng-container *ngIf="getQuestion.touched">
+        <p class="text-danger form-text fs-5 p-2" *ngIf="getQuestion.hasError('required')">The Question Is Required</p>
+      </ng-container>
+    </div>
+    <div class="my-3">
+      <label for="fname" class="form-label">First Choice</label>
+      <div class="input-group">
+        <i class="bi bi-1-circle input-group-text fs-4 p-2"></i>
+        <input type="text" name="fname" class="form-control p-3 fs-5" placeholder="Enter First Choice" formControlName="a"
+          [ngClass]="{'is-invalid': getAchoice.invalid && getAchoice.touched, 'is-valid': getAchoice.valid}" required>
+      </div>
+      <ng-container *ngIf="getAchoice.touched">
+        <p class="text-danger form-text fs-5 p-2" *ngIf="getAchoice.hasError('required')">The Choice Required</p>
+      </ng-container>
+    </div>
+    <div class="my-3">
+      <label for="fname" class="form-label">Second Choice</label>
+      <div class="input-group">
+        <i class="bi bi-2-circle input-group-text fs-4 p-2"></i>
+        <input type="text" name="fname" class="form-control p-3 fs-5" placeholder="Enter Second Choice" formControlName="b"
+          [ngClass]="{'is-invalid': getBchoice.invalid && getBchoice.touched, 'is-valid': getBchoice.valid}" required>
+      </div>
+      <ng-container *ngIf="getBchoice.touched">
+        <p class="text-danger form-text fs-5 p-2" *ngIf="getBchoice.hasError('required')">The Choice Required</p>
+      </ng-container>
+    </div>
+    <div class="my-3">
+      <label for="fname" class="form-label">Third Choice</label>
+      <div class="input-group">
+        <i class="bi bi-3-circle input-group-text fs-4 p-2"></i>
+        <input type="text" name="fname" class="form-control p-3 fs-5" placeholder="Enter Third Choice" formControlName="c"
+          [ngClass]="{'is-invalid': getCchoice.invalid && getCchoice.touched, 'is-valid': getCchoice.valid}" required>
+      </div>
+      <ng-container *ngIf="getCchoice.touched">
+        <p class="text-danger form-text fs-5 p-2" *ngIf="getCchoice.hasError('required')">The Choice Required</p>
+      </ng-container>
+    </div>
+    <div class="my-3">
+      <label for="fname" class="form-label">Fourth Choice</label>
+      <div class="input-group">
+        <i class="bi bi-4-circle input-group-text fs-4 p-2"></i>
+        <input type="text" name="fname" class="form-control p-3 fs-5" placeholder="Enter Fourth Choice" formControlName="d"
+          [ngClass]="{'is-invalid': getDchoice.invalid && getDchoice.touched, 'is-valid': getDchoice.valid}" required>
+      </div>
+      <ng-container *ngIf="getDchoice.touched">
+        <p class="text-danger form-text fs-5 p-2" *ngIf="getDchoice.hasError('required')">The Choice Required</p>
+      </ng-container>
+    </div>
+    <div class="my-3">
+      <label for="fname" class="form-label">Correct Answer</label>
+      <div class="input-group">
+        <i class="bi bi-4-circle input-group-text fs-4 p-2"></i>
+        <input type="text" name="fname" class="form-control p-3 fs-5" placeholder="Enter The Correct Answer" formControlName="correct"
+          [ngClass]="{'is-invalid': getCorrectChoice.invalid && getCorrectChoice.touched, 'is-valid': getCorrectChoice.valid}" required>
+      </div>
+      <ng-container *ngIf="getCorrectChoice.touched">
+        <p class="text-danger form-text fs-5 p-2" *ngIf="getCorrectChoice.hasError('required')">the Correct Answer Required</p>
+      </ng-container>
+    </div>
+    <button type="submit" class="btn btn-outline-success py-2 px-5 my-3 d-block mx-auto" (click)="AddQuestionToExam()">Add</button>
+  </form>
+</div>
+</div>

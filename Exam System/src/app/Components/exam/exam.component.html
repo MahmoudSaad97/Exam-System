@@ -1,0 +1,30 @@
+<div class="container exam-container main" *ngIf="user">
+  <div *ngIf="loading" class="loader"></div>
+  <div *ngIf="!loading" class="w-100">
+    <div class="content text-center" *ngIf="!showExam">
+      <h3>Are You Ready For New Exam</h3>
+      <p class="text-secondary fs-5">If You Are Readt Lets Start And Select The Exam You Want To Sart</p>
+      <div *ngFor="let exam of exams" class="d-flex justify-content-between w-75 mx-auto p-3 my-4 selctexam">
+        <p class="fs-4">{{ exam.examName }}</p>
+        <button (click)="selectExam(exam)" class="btn btn-outline-dark py-2 px-4 my-3 rounded-pill" [disabled]="exam.Questions.length == 0">Take Exame</button>
+      </div>
+    </div>
+    <div *ngIf="selectedExam && showExam" class="questions-container">
+      <h3 class="text-center text-primary fw-bold p-3 my-3">{{selectedExam.examName}} Exam</h3>
+      <div class="container">
+        <p class="fs-4 fw-bold p-2 my-3">{{Questions[currentQuestion].question}}</p>
+        <div *ngFor="let option of ['a', 'b', 'c', 'd']" class="my-2 fs-5">
+        <input type="radio" name="selectedOption" [value]="option" (change)="selectedAnswer = option" class="form-check-input" [id]="'option-'+option">
+        <label class="form-check-label ms-3" [for]="'option-'+option">{{Questions[currentQuestion][option]}}</label>
+        </div>
+        <div class="text-end">
+          <p [ngClass]="remainingTime.seconds < 10 ?'danger':'ok'">
+            Remaining Time:
+            <span *ngIf="remainingTime.minutes < 10">0</span>{{ remainingTime.minutes }}:<span *ngIf="remainingTime.seconds < 10">0</span>{{remainingTime.seconds}}
+          </p>
+        </div>
+        <button class="btn btn-outline-success my-3 px-3 py-2 mx-auto d-block" type="submit" (click)="submitAnswer()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

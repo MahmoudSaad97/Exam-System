@@ -1,0 +1,27 @@
+.content{
+  position: relative;
+  padding: 20px;
+}
+
+.content::after{
+  content: "";
+  position: absolute;
+  width:90%;
+  left:10%;
+  bottom: 0;
+  height: 1px;
+  background-color: #777;
+}
+.content::before{
+  content: "";
+  position: absolute;
+  width:20px;
+  left:50%;
+  transform: translateX(50%);
+  bottom:-10px;
+  height: 20px;
+  border-radius: 50%;
+  border:1px solid #777;
+  background-color: #ecece3;
+  z-index: 1;
+}

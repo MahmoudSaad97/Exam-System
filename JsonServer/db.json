@@ -1,0 +1,196 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fname": "Mahmoud",
+      "lname": "Saad",
+      "userName": "Mahmoud Saad",
+      "password": "Sa3d123",
+      "email": "mahmoud.s3d97@gmail.com",
+      "role": "admin"
+    },
+    {
+      "fname": "Mahmoud",
+      "lname": "Saad",
+      "userName": "Msa3d12",
+      "email": "srofox20@gmail.com",
+      "password": "Thesunmoon123",
+      "role": "user",
+      "id": 2,
+      "exams": [
+        {
+          "exam": "Js",
+          "grade": "100%",
+          "date": "6/23/2023"
+        },
+        {
+          "exam": "C#",
+          "grade": "100%",
+          "date": "6/23/2023"
+        },
+        {
+          "exam": "JavaScript",
+          "grade": "40%",
+          "date": "6/25/2023"
+        }
+      ]
+    },
+    {
+      "fname": "Ahmed",
+      "lname": "Osama",
+      "userName": "Ahmed12",
+      "email": "ss@ss.ss",
+      "password": "Ahmed123",
+      "role": "user",
+      "id": 3,
+      "exams": []
+    },
+    {
+      "fname": "Mohamed",
+      "lname": "Hamdi",
+      "userName": "MHamdi",
+      "email": "mohamedHamdi@gmail.com",
+      "password": "Mohamed123#",
+      "role": "user",
+      "id": 4
+    }
+  ],
+  "Exams": [
+    {
+      "id": 1,
+      "examName": "JavaScript",
+      "Questions": [
+        {
+          "question": "Javascript is an ___ language?",
+          "a": "OOP",
+          "b": "Object_Base",
+          "c": "procedural",
+          "d": "None of the above",
+          "correct": "A"
+        },
+        {
+          "question": "Which of the following keywords is used to define a variable in Javascript?",
+          "a": "var",
+          "b": "let",
+          "c": "Both A and B",
+          "d": "None of the above",
+          "correct": "C"
+        },
+        {
+          "question": "Which of the following methods is used to access HTML elements using Javascript",
+          "a": "getElementByID()",
+          "b": "getElemnetByClassName()",
+          "c": "Both A and B",
+          "d": "None of the above",
+          "correct": "C"
+        },
+        {
+          "question": "Upon encountering empty statements, what does the Javascript Interpreter do?",
+          "a": "Throw an Error",
+          "b": "Ignors the statements",
+          "c": "Gaves a warning",
+          "d": "None of the above",
+          "correct": "B"
+        },
+        {
+          "question": "Which of the following methods can be used to display data in some form using Javascript?",
+          "a": "documetn.write()",
+          "b": "console.log()",
+          "c": "window.alert()",
+          "d": "All of the above",
+          "correct": "D"
+        },
+        {
+          "question": "How can a datatype be declared to be a constant type?",
+          "a": "const",
+          "b": "let",
+          "c": "var",
+          "d": "constant",
+          "correct": "A"
+        },
+        {
+          "question": "What keyword is used to check whether a given property is valid or not?",
+          "a": "in",
+          "b": "is in",
+          "c": "exist",
+          "d": "lies",
+          "correct": "A"
+        },
+        {
+          "question": "What is the use of the <noscript> tag in Javascript?",
+          "a": "The Contents by non-JS based browser",
+          "b": "clear all the cookies and cache",
+          "c": "Both A and B",
+          "d": "Noneof the above",
+          "correct": "A"
+        },
+        {
+          "question": "When an operator’s value is NULL, the typeof returned by the unary operator is:",
+          "a": "boolean",
+          "b": "undefined",
+          "c": "object",
+          "d": "integer",
+          "correct": "C"
+        },
+        {
+          "question": "What does the Javascript “debugger” statement do?",
+          "a": "it will debug all the errors in the program at run time",
+          "b": "at act as a breakpoint in a program",
+          "c": "it will debug error in the current statement if any",
+          "d": "All of the above",
+          "correct": "B"
+        },
+        {
+          "question": "What does the ‘toLocateString()’ method do in JS?",
+          "a": "return localised object representation",
+          "b": "return a parsed string",
+          "c": "return localised string representation of an object",
+          "d": "none of the above",
+          "correct": "C"
+        },
+        {
+          "question": "Which function is used to serialize an object into a JSON string in Javascript?",
+          "a": "stringfy()",
+          "b": "parse()",
+          "c": "convert()",
+          "d": "none of the above",
+          "correct": "A"
+        },
+        {
+          "question": "Which of the following are closures in Javascript?",
+          "a": "variables",
+          "b": "functions",
+          "c": "objects",
+          "d": "all of the above",
+          "correct": "D"
+        },
+        {
+          "question": "What keyword is used to declare an asynchronous function in Javascript?",
+          "a": "async",
+          "b": "await",
+          "c": "setTimeout",
+          "d": "none of the above",
+          "correct": "A"
+        },
+        {
+          "question": "Which of the following are not server-side Javascript objects?",
+          "a": "date",
+          "b": "fille upload",
+          "c": "function",
+          "d": "All of the above",
+          "correct": "D"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "examName": "C#",
+      "Questions": []
+    },
+    {
+      "examName": "sdsfd",
+      "Questions": [],
+      "id": 4
+    }
+  ]
+}

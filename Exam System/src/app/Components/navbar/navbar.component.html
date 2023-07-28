@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">Quizatk</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/']" [routerLinkActive]="'text-danger'"
+              [routerLinkActiveOptions]="{ exact: true }">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/exam']" [routerLinkActive]="'text-danger'"
+              [routerLinkActiveOptions]="{ exact: true }" *ngIf="loginstate && userdata.role =='user'">Take Exam</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/editexam']" [routerLinkActive]="'text-danger'"
+              [routerLinkActiveOptions]="{ exact: true }" *ngIf="loginstate && userdata.role == 'admin'">Edit Exams</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!loginstate" [routerLink]="['/register']" [routerLinkActive]="'text-success fw-bold'">
+              <i class="bi bi-person-add mx-1 fs-5"></i>register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!loginstate" [routerLink]="['/login']" [routerLinkActive]="'text-success fw-bold'">
+              <i class="bi bi-box-arrow-in-right mx-1 fs-5"></i>login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="loginstate" [routerLink]="['/profile']">{{userdata.fname}} {{userdata.lname}} <span class="text-success fw-bold">({{userdata.role}})</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['home']" [routerLinkActive]="'text-success'"
+              [routerLinkActiveOptions]="{ exact: true }"
+              *ngIf="loginstate" (click)="logout()"><i class="bi bi-box-arrow-in-left mx-1 fs-5"></i>logout</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>

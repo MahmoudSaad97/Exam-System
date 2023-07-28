@@ -1,0 +1,24 @@
+<div *ngIf="loading" class="loader"></div>
+<div class="container profile" *ngIf="!loading">
+  <div>
+    <img src="assets/images/admin.webp" alt="">
+    <p class="fw-semibold fs-4">Name: {{user.fname}} {{user.lname}}</p>
+    <p>Eamil: {{user.email}}</p>
+    <p class="fw-bold fs-5">Role: {{user.role}}</p>
+    <div class="div" *ngIf="user.role != 'admin'">
+      <h3 class="p-2 my-3">Your Exams Evaluation</h3>
+      <table class="p-3 table table-striped my-4">
+        <tr>
+          <th>Exam Name</th>
+          <th>Grade</th>
+          <th>Date</th>
+        </tr>
+        <tr *ngFor="let exam of user.exams" class="p-5">
+          <td class="p-4">{{exam.exam}}</td>
+          <td>{{exam.grade}}</td>
+          <td>{{exam.date}}</td>
+        </tr>
+      </table>
+      </div>
+  </div>
+</div>

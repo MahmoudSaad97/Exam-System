@@ -1,0 +1,16 @@
+<div class="container main">
+  <div *ngIf="loading" class="loader"></div>
+  <div class="container" *ngIf="!loading">
+    <p class="fs-2 text-secondary fw-bold text-center my-5">{{exam.examName}} Exam Edition</p>
+    <p class="fs-4  fw-semibold text-center my-5">{{exam.Questions.length}} Question In This Topic</p>
+    <div class="d-flex align-items-center justify-content-between content" *ngFor="let Quest of exam.Questions;let i = index">
+      <p class="p-2 w-75 mx-auto fs-5"><span class="fw-semibold">Question:{{i+1}}:</span> {{Quest.question}}
+      </p>
+      <button class="btn" (click)="removeQuestionFromExam(i)"><i class="bi bi-trash text-danger fs-4"></i></button>
+    </div>
+      <button class="btn btn-outline-dark py-2 px-4 my-3 rounded-pill d-block mx-auto" [routerLink]="['/addQuestion', exam?.id]">
+        Add New Questions</button>
+      <button class="btn btn-outline-dark py-2 px-4 my-3 rounded-pill d-block mx-auto" [routerLink]="['/editexam']">
+        Bcak To List</button>
+  </div>
+</div>

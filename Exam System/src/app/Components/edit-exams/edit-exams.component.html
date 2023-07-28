@@ -1,0 +1,19 @@
+<div class="container main">
+  <div *ngIf="loading" class="loader"></div>
+  <div class="container" *ngIf="!loading">
+    <div class="add w-50 mx-auto my-3">
+      <h3 class="my-3 p-2">Add New Exam Topic</h3>
+      <input type="text" [(ngModel)]="examName" class="form-control p-3" placeholder="Enter New Exam Name">
+      <button class="btn btn-dark d-block mx-auto py-2 px-4 my-3" (click)="addExam()">Add Exam</button>
+    </div>
+    <div *ngFor="let exam of exams" class="d-flex justify-content-between w-100 mx-auto p-3 my-4 selctexam">
+      <p class="fs-4">{{ exam.examName }}</p>
+      <p class="fs-4"> Have <span [ngClass]="exam.Questions.length > 0 ?'text-success':'text-danger'">{{ exam.Questions.length }}</span> Question</p>
+    <button class="btn btn-outline-dark py-2 px-4 my-3 rounded-pill" [routerLink]="['/removeQuestion', exam?.id]">
+      Edit Exam</button>
+      <button class="btn" (click)="DeleteExam(exam.id)"><i class="bi bi-trash text-danger fs-4"></i>
+    </button>
+      
+    </div>
+  </div>
+</div>

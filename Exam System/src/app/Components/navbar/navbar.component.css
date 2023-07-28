@@ -1,0 +1,6 @@
+.navbar{
+  background: linear-gradient(to left, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
+  box-shadow: 0 0 40px 0 rgba(0 ,0 ,0 ,0.3);
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
